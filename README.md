@@ -63,3 +63,7 @@ Thanks Lazlo
 
 ### Support:
 - [tip jar](https://www.amazon.it/photos/share/Gbg3FN0k6pjG6F5Ln3dqQEmwO0u4nSkNIButm3EGtit)
+
+### P.S.:
+- Can you find the easter egg? if it is not already this whole repository?
+Happy Easter 2022
