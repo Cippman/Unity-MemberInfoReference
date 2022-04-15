@@ -1,0 +1,18 @@
+{
+  "name": "com.cippsharp.members",
+  "version": "1.0.0",
+  "displayName": "CippSharp.Members",
+  "description": "Create your custom serializable class that holds the reference to an UnityEngine.Object's MemberInfo",
+  "unity":"2019.4",
+  "unityRelease":"10f1",  
+  "keywords": [
+    "cippsharp",
+    "interface",
+    "reference"
+  ],
+  "license": "MIT",
+  "author" : {
+    "name" : "Alessandro Salani (Cippman)",
+    "url" : "https://github.com/Cippman/Unity-MemberInfoReference.git"
+  }  
+}
