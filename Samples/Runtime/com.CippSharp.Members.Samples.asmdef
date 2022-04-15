@@ -1,0 +1,15 @@
+{
+    "name": "com.CippSharp.InspectorMember.Samples",
+    "references": [
+        "GUID:1f915d6ce94e4854db478b60f3e856b5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
