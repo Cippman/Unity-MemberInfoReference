@@ -39,8 +39,7 @@ serializable class where T is the UnityEngine.Object type.
 that are Fields or Properties supports Get and Set, Methods will be
 invoked anyway.
 * As for the [InterfaceReference](https://github.com/Cippman/Unity-InterfaceReference) this is intended 
-to be used by inspector. If you need to use Reflection to access a specific member at runtime there are 
-many of better solutions than this. 
+to be used by inspector. If you need to use Reflection to access a specific member at runtime there are better solutions than this. 
     * For example by already caching the target MemberInfo of interested type as variable at Start or as static
 
 So yes, this is more a small showoff of what Reflection and CustomEditors can do
