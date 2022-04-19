@@ -1,6 +1,6 @@
 {
   "name": "com.cippsharp.members",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "CippSharp.Members",
   "description": "Create your custom serializable class that holds the reference to an UnityEngine.Object's MemberInfo",
   "unity":"2019.4",
