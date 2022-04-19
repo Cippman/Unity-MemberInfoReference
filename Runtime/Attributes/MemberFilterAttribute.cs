@@ -47,8 +47,8 @@ namespace CippSharp.Members
         public const string MethodParameterNameEqualOption = "mpne:";
         public const string MethodParameterTypeOption = "mpt:";
        
-        private const string CommaSeparator = Constants.CommaSeparator;
-        private const string SpaceSeparator = Constants.Space;
+        private const string CommaSeparator = MembersConstants.CommaSeparator;
+        private const string SpaceSeparator = MembersConstants.Space;
         
         /// <summary>
         /// Filter Attribute Special Options

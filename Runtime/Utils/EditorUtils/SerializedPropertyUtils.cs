@@ -419,7 +419,7 @@ namespace CippSharp.Members
             SerializedProperty iterator = serializedObject.GetIterator();
             for (bool enterChildren = true; iterator.NextVisible(enterChildren); enterChildren = false)
             {
-                using (new EditorGUI.DisabledScope(Constants.ScriptSerializedPropertyName == iterator.propertyPath))
+                using (new EditorGUI.DisabledScope(MembersConstants.ScriptSerializedPropertyName == iterator.propertyPath))
                 {
                     properties.Add(iterator.Copy());
                 }
@@ -545,7 +545,7 @@ namespace CippSharp.Members
                         Debug.Log($"{i.ToString()} --> {fieldName}");
                     }
                 }
-                else if (fieldName == Constants.Array && i + 1 < splitResults.Length && splitResults[i + 1].Contains("data"))
+                else if (fieldName == MembersConstants.Array && i + 1 < splitResults.Length && splitResults[i + 1].Contains("data"))
                 {
                     #region Array Element Property
                         
@@ -668,7 +668,7 @@ namespace CippSharp.Members
 
                         //Do Nothing
                     }
-                    else if (fieldName == Constants.Array && i + 1 < splitResults.Length && splitResults[i + 1].Contains("data"))
+                    else if (fieldName == MembersConstants.Array && i + 1 < splitResults.Length && splitResults[i + 1].Contains("data"))
                     {
                         #region Array Element Property
                         
@@ -764,12 +764,12 @@ namespace CippSharp.Members
 					            Debug.Log($"Reverse loop {i.ToString()} --> {fieldName}");
 				            }
 			            }
-			            else if (fieldName.Contains(Constants.Array) && fieldName.Contains("data"))
+			            else if (fieldName.Contains(MembersConstants.Array) && fieldName.Contains("data"))
 			            {
 				            #region Array Element Property
 
 				            string data = fieldName;
-				            string parsingString = data.Replace(Constants.Array, string.Empty)
+				            string parsingString = data.Replace(MembersConstants.Array, string.Empty)
 					            .Replace(".", string.Empty).Replace("data[", string.Empty).Replace("]", string.Empty);
 				            if (int.TryParse(parsingString, out int w))
 				            {

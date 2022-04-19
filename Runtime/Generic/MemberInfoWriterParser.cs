@@ -14,9 +14,9 @@ namespace CippSharp.Members
         private const string PropertiesPrefix = "Properties";
         private const string MethodsPrefix = "Methods";
       
-        private const string Separator = Constants.Separator;
-        private const string CommaSeparator = Constants.CommaSeparator;
-        private const string Space = Constants.Space;
+        private const string Separator = MembersConstants.Separator;
+        private const string CommaSeparator = MembersConstants.CommaSeparator;
+        private const string Space = MembersConstants.Space;
         
         public const string PrettyBooleanName = "bool";
         public const string PrettyBooleanArrayName = "bool[]";

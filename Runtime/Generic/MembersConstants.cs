@@ -1,7 +1,7 @@
 ﻿
 namespace CippSharp.Members
 {
-    internal static class Constants
+    internal static class MembersConstants
     {
         /// <summary>
         /// Unity's default name for script property.
