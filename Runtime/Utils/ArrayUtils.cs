@@ -85,56 +85,6 @@ namespace CippSharp.Members
             }
         }
         
-//        #region For
-//          
-//        /// <summary>
-//        /// Perform a for on an array
-//        /// </summary>
-//        /// <param name="array"></param>
-//        /// <param name="action"></param>
-//        /// <typeparam name="T"></typeparam>
-//        /// <returns></returns>
-//        public static void For<T>(ref T[] array, ForRefAction<T> action)
-//        {
-//            for (int i = 0; i < array.Length; i++)
-//            {
-//                action.Invoke(ref array[i], i);
-//            }
-//        }
-//
-//        /// <summary>
-//        /// Perform a for on an list
-//        /// </summary>
-//        /// <param name="list"></param>
-//        /// <param name="action"></param>
-//        /// <typeparam name="T"></typeparam>
-//        /// <returns></returns>
-//        public static void For<T>(ref List<T> list, ForRefAction<T> action)
-//        {
-//            for (int i = 0; i < list.Count; i++)
-//            {
-//                T element = list[i];
-//                action.Invoke(ref element, i);
-//                list[i] = element;
-//            }
-//        }
-//
-//        /// <summary>
-//        /// Perform a foreach
-//        /// </summary>
-//        /// <param name="enumerable"></param>
-//        /// <param name="action"></param>
-//        /// <typeparam name="T"></typeparam>
-//        /// <returns></returns>
-//        public static IEnumerable<T> For<T>(IEnumerable<T> enumerable, ForRefAction<T> action)
-//        {
-//            T[] array = enumerable.ToArray();
-//            For(ref array, action);
-//            return array;
-//        }
-//
-//        #endregion
-        
         #region Contains / Find
         
         /// <summary>
@@ -253,40 +203,6 @@ namespace CippSharp.Members
             return list == null || list.Count < 1;
         }
 
-        /// <summary>
-        /// Returns true if the given dictionary is null or empty
-        /// </summary>
-        /// <param name="dictionary"></param>
-        /// <typeparam name="K"></typeparam>
-        /// <typeparam name="V"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty<K, V>(Dictionary<K, V> dictionary)
-        {
-            return dictionary == null || dictionary.Count < 1;
-        }
-
-        /// <summary>
-        /// Returns true if the given collection is null or empty
-        /// </summary>
-        /// <param name="collection"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(ICollection<T> collection)
-        {
-            return collection == null || collection.Count < 1;
-        }
-        
-        /// <summary>
-        /// Returns true if the given enumerable is null or empty
-        /// </summary>
-        /// <param name="enumerable"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(IEnumerable<T> enumerable)
-        {
-            return enumerable == null || !enumerable.Any();
-        }
-
         #endregion
 
         #region Is Valid Index
@@ -314,18 +230,6 @@ namespace CippSharp.Members
         {
             return index >= 0 && index < list.Count;
         }
-
-        /// <summary>
-        /// Returns true if the given index is in the list range.
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="enumerable"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool IsValidIndex<T>(int index, IEnumerable<T> enumerable)
-        {
-            return index >= 0 && index < enumerable.Count();
-        }
         
         #endregion
         
@@ -345,90 +249,6 @@ namespace CippSharp.Members
             return (from element in array where predicate.Invoke(element) select func.Invoke(element));
         }
         
-        /// <summary>
-        /// Select Many If predicate. Similar to System.linq Select but with a predicate to check.
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="predicate"></param>
-        /// <param name="func"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="F"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<F> SelectManyIf<T, F>(IEnumerable<T> array, Predicate<T> predicate, Func<T, IEnumerable<F>> func)
-        {
-            List<F> fs = new List<F>();
-            foreach (var element in array)
-            {
-                if (predicate.Invoke(element))
-                {
-                    fs.AddRange(func.Invoke(element));
-                }
-            }
-            return fs;
-        }
-        
-        /// <summary>
-        /// Select not null elements from an enumerable
-        /// </summary>
-        /// <param name="enumerable"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static IEnumerable<T> SelectNotNullElements<T>(IEnumerable<T> enumerable) where T : class
-        {
-            return enumerable.Where(e => e != null);
-        }
-
         #endregion
-        
-        #region Sub Array
-        
-        /// <summary>
-        /// Same as substring, but for arrays.
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static T[] SubArray<T>(T[] array, int index, int length)
-        {
-            if (TrySubArray(array, index, length, out T[] subArray))
-            {
-                return subArray;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Try to get a subArray from an array
-        /// </summary>
-        /// <param name="array"></param>
-        /// <param name="index"></param>
-        /// <param name="length"></param>
-        /// <param name="subArray"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public static bool TrySubArray<T>(T[] array, int index, int length, out T[] subArray)
-        {
-            try
-            {
-                T[] result = new T[length];
-                Array.Copy(array, index, result, 0, length);
-                subArray = result;
-                return true;
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(e.Message);
-                subArray = null;
-                return false;
-            }
-        }
-        
-        #endregion
-        
     }
 }
