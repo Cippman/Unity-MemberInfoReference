@@ -111,9 +111,8 @@ namespace CippSharp.Members
         /// </summary>
         /// <param name="value"></param>
         /// <param name="strings"></param>
-        /// <param name="default"></param>
         /// <returns></returns>
-        public static bool ContainsAnyString(string value, string[] strings, bool @default = true)
+        public static bool ContainsAnyString(string value, string[] strings)
         {
             return strings.Any(value.Contains);
         }
